@@ -1,0 +1,61 @@
+* {
+    box-sizing: border-box;
+}
+
+.grid-container {
+    display: grid;
+    grid-gap: 1%;
+    grid-template-columns: 33% 33% 33%;
+    padding: 10px;
+}
+
+.item1 {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    text-align: center;
+}
+
+.grid-item {
+    width: 100%;
+}
+
+.control {
+    border: none;
+    outline: none;
+    background-color: darkgrey;
+    color: white;
+    height: 100%;
+    width: 100%;
+}
+
+.active > .control {
+    background-color: darkolivegreen;
+    border-color: darkkhaki;
+}
+
+.state {
+    float: right;
+    font-size: 15vh;
+    margin-right: 5%;
+    width: 30%;
+}
+
+.audname {
+    float: left;
+    word-wrap: break-word;
+    font-size: 40px;
+    font-size; 2.5vh;
+    width: 65%;
+    margin-top: 5%;
+}
+
+@media only screen and (max-width: 760px) {
+    .grid-container {
+        grid-template-columns: 50% 50%;
+    }
+    
+    .item1 {
+        grid-column-end: 3;
+        font-size: 2vh;
+    }
+}
