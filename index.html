@@ -14,8 +14,9 @@
             var audio = document.querySelectorAll('audio')
             audio.forEach(function(elem) {
                 elem.addEventListener("ended",function() {
-                AudState = this.parentElement.querySelector('.state');
-                AudState.innerHTML = '>';
+                AudWidget = this.parentElement;
+                AudWidget.querySelector('.state').innerHTML = '>';
+                AudWidget.className = AudWidget.className.replace(' active','');
                 })
             })
         }
@@ -24,13 +25,12 @@
             var ObjStat = obj.querySelector('.state');
             var current = document.getElementsByClassName('active');
             if (current.length > 0) {
-                current[0].classname = current[0].className.replace(' active','');
+                current[0].className = current[0].className.replace(' active','');
             }
             var widgets = document.getElementsByClassName('widget');
             for(i=0; i<widgets.length; i++) {
                 ThisAud = widgets[i].querySelector('.player');
                 ThisState = widgets[i].querySelector('.state');
-                console.log(widgets);
                 if(ObjAud.src != ThisAud.src){
                     ThisAud.pause();
                     ThisAud.currentTime = 0;
@@ -40,7 +40,7 @@
             if (ObjAud.paused) {
                 ObjAud.play();
                 ObjStat.innerHTML = '||';
-                obj.classname += ' active';
+                obj.className += ' active';
             } else {
                 ObjAud.pause();
                 ObjAud.currentTime = 0;
