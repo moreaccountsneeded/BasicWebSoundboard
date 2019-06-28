@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<head>
+    <title>Soundboard</title>
+    <meta charset="UTF-8" name="viewport" content="width=device-width">
+    <script type="text/javascript">
+        function StartUp() {
+            var widgets = document.getElementsByClassName('widget');
+            for(i=0; i<widgets.length; i++) {
+               var source = widgets[i].querySelector('.player');
+               var name = source.src;
+               var target = widgets[i].querySelector('.control');
+                target.innerHTML = '<span class="audioname">' + name.slice(12, -4) + '</span><span class="state">></span>'; 
+            }
+            var audio = document.querySelectorAll('audio')
+            audio.forEach(function(elem) {
+                elem.addEventListener("ended",function() {
+                AudState = this.parentElement.querySelector('.state');
+                AudState.innerHTML = '>';
+                })
+            })
+        }
+        function PlayPause(obj) {
+            var ObjAud = obj.querySelector('.player');
+            var ObjStat = obj.querySelector('.state');
+            var current = document.getElementsByClassName('active');
+            if (current.length > 0) {
+                current[0].classname = current[0].className.replace(' active','');
+            }
+            var widgets = document.getElementsByClassName('widget');
+            for(i=0; i<widgets.length; i++) {
+                ThisAud = widgets[i].querySelector('.player');
+                ThisState = widgets[i].querySelector('.state');
+                console.log(widgets);
+                if(ObjAud.src != ThisAud.src){
+                    ThisAud.pause();
+                    ThisAud.currentTime = 0;
+                }
+                ThisState.innerHTML = '>';
+            }
+            if (ObjAud.paused) {
+                ObjAud.play();
+                ObjStat.innerHTML = '||';
+                obj.classname += ' active';
+            } else {
+                ObjAud.pause();
+                ObjAud.currentTime = 0;
+                ObjStat.innerHTML = '>';
+            }
+        }
+    </script>
+    <link rel='stylesheet' type='text/css' href='styles.css'/>
+</head>
+<body onload="StartUp()">
+    <div class="grid-container">
+        <div class="grid-item item1">
+            <h1>SOUND BUTTONS SHOULD APPEAR BELOW</h1>
+        </div>
+        <div class="grid-item">
+            <a class="widget" href="javascript:void(0)" onclick="PlayPause(this)">
+                <button class="control"></button>
+                <audio class="player" src="sounds/dwight_punish.mp3" preload="auto"></audio>
+            </a>
+        </div>
+        <div class="grid-item">
+            <a class="widget" href="javascript:void(0)" onclick="PlayPause(this)">
+                <button class="control"></button>
+                <audio class="player" src="sounds/micheal-dwight-you-ignorant-slut.mp3" preload="auto"></audio>
+            </a>
+        </div>
+        <div class="grid-item">
+            <a class="widget" href="javascript:void(0)" onclick="PlayPause(this)">
+                <button class="control"></button>
+                <audio class="player" src="sounds/dwight_smile.mp3" preload="auto"></audio>
+            </a>
+        </div>
+        <div class="grid-item">
+            <a class="widget" href="javascript:void(0)" onclick="PlayPause(this)">
+                <button class="control"></button>
+                <audio class="player" src="sounds/dwight_jim_is_gone.mp3" preload="auto"></audio>
+            </a>
+        </div>
+        <div class="grid-item">
+            <a class="widget" href="javascript:void(0)" onclick="PlayPause(this)">
+                <button class="control"></button>
+                <audio class="player" src="sounds/a_freeze_is_coming.mp3" preload="auto"></audio>
+            </a>
+        </div>
+        <div class="grid-item">
+            <a class="widget" href="javascript:void(0)" onclick="PlayPause(this)">
+                <button class="control"></button>
+                <audio class="player" src="sounds/breakfast.mp3" preload="auto"></audio>
+            </a>
+        </div>
+        <div class="grid-item">
+            <a class="widget" href="javascript:void(0)" onclick="PlayPause(this)">
+                <button class="control"></button>
+                <audio class="player" src="sounds/goodguys.mp3" preload="auto"></audio>
+            </a>
+        </div>
+        <div class="grid-item">
+            <a class="widget" href="javascript:void(0)" onclick="PlayPause(this)">
+                <button class="control"></button>
+                <audio class="player" src="sounds/got_new_for_you.mp3" preload="auto"></audio>
+            </a>
+        </div>
+        <div class="grid-item">
+            <a class="widget" href="javascript:void(0)" onclick="PlayPause(this)">
+                <button class="control"></button>
+                <audio class="player" src="sounds/not_a_tumor.mp3" preload="auto"></audio>
+            </a>
+        </div>
+        <div class="grid-item">
+            <a class="widget" href="javascript:void(0)" onclick="PlayPause(this)">
+                <button class="control"></button>
+                <audio class="player" src="sounds/problemo.mp3" preload="auto"></audio>
+            </a>
+        </div>
+        <div class="grid-item">
+            <a class="widget" href="javascript:void(0)" onclick="PlayPause(this)">
+                <button class="control"></button>
+                <audio class="player" src="sounds/put_the_cookie_down.mp3" preload="auto"></audio>
+            </a>
+        </div>
+        <div class="grid-item">
+            <a class="widget" href="javascript:void(0)" onclick="PlayPause(this)">
+                <button class="control"></button>
+                <audio class="player" src="sounds/Stop_it.mp3" preload="auto"></audio>
+            </a>
+        </div>
+        <div class="grid-item">
+            <a class="widget" href="javascript:void(0)" onclick="PlayPause(this)">
+                <button class="control"></button>
+                <audio class="player" src="sounds/Stop_shouting_im_not_deaf.mp3" preload="auto"></audio>
+            </a>
+        </div>
+        <div class="grid-item">
+            <a class="widget" href="javascript:void(0)" onclick="PlayPause(this)">
+                <button class="control"></button>
+                <audio class="player" src="sounds/u_lack_discipline.mp3" preload="auto"></audio>
+            </a>
+        </div>
+        <div class="grid-item">
+            <a class="widget" href="javascript:void(0)" onclick="PlayPause(this)">
+                <button class="control"></button>
+                <audio class="player" src="sounds/Who_told_you_you_can_eat_my_cookies.mp3" preload="auto"></audio>
+            </a>
+        </div>
+        <div class="grid-item">
+            <a class="widget" href="javascript:void(0)" onclick="PlayPause(this)">
+                <button class="control"></button>
+                <audio class="player" src="sounds/Wrong.mp3" preload="auto"></audio>
+            </a>
+        </div>
+        <div class="grid-item">
+            <a class="widget" href="javascript:void(0)" onclick="PlayPause(this)">
+                <button class="control"></button>
+                <audio class="player" src="sounds/You_idiot.mp3" preload="auto"></audio>
+            </a>
+        </div>
+        <div class="grid-item">
+            <a class="widget" href="javascript:void(0)" onclick="PlayPause(this)">
+                <button class="control"></button>
+                <audio class="player" src="sounds/You_started_it.mp3" preload="auto"></audio>
+            </a>
+        </div>
+    </div>
+</body>
+</html>
